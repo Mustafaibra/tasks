@@ -1,4 +1,4 @@
-package com.example.httpreq
+package com.Sprints.usersinfo
 
 import io.flutter.embedding.android.FlutterActivity
 

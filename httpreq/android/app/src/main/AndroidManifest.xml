@@ -1,7 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.httpreq">
+    package="com.Sprints.usersinfo">
+    <uses-permission android:name="android.permission.INTERNET"/>
+            
+      
    <application
-        android:label="httpreq"
+        android:label="Users Info"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
