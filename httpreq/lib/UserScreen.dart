@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:httpreq/UserDetails.dart';
 import 'package:httpreq/data_model/User.dart';
+import 'package:httpreq/settings.dart';
+import 'package:httpreq/person.dart';
 
-import 'package:httpreq/services/service.dart';
+import 'Users.dart';
 
 class UserScreen extends StatefulWidget {
   @override
@@ -11,29 +12,50 @@ class UserScreen extends StatefulWidget {
 }
 
 class _UserScreenState extends State<UserScreen> {
-  List<User> useruslist = [];
-  bool isLoading = true;
-  getUserList() async {
-    useruslist = await service().getUsers();
-    isLoading = false;
-    setState(() {});
-  }
+  int currentIndex = 0;
+  List<Widget> pages = [Users(), settings(), person()];
 
-  @override
-  void initState() {
-    super.initState();
-    getUserList();
+  void _onItemTap(int index) {
+    setState(() {
+      currentIndex = index;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: isLoading
-          ? Center(
-              child: CircularProgressIndicator(),
-            )
-          : ListView.builder(
+      appBar: AppBar(
+        title: Text("Users LIST"),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex,
+        onTap: _onItemTap,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: "Setting",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Person",
+          )
+        ],
+      ),
+      body: pages[currentIndex],
+    );
+  }
+}
+
+
+
+//list view for users
+/*
+
+ListView.builder(
               itemCount: useruslist.length,
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
@@ -57,6 +79,4 @@ class _UserScreenState extends State<UserScreen> {
                 );
               },
             ),
-    );
-  }
-}
+*/
