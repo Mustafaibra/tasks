@@ -66,7 +66,8 @@ class _UsersState extends State<Users> {
                               "${useruslist[index].name}",
                               style: TextStyle(
                                 fontSize: 20,
-                                color: Colors.black54,
+                                color: Colors.red[600],
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ],

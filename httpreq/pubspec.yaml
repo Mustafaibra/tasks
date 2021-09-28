@@ -65,7 +65,7 @@ flutter:
   fonts:
     - family: Raleway
       fonts:
-        - asset: assets/Raleway-VariableFont_wght.ttf
+        - asset: assets/Raleway-BlackItalic.ttf
         
  
   #

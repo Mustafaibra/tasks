@@ -7,6 +7,9 @@ void main() {
   runApp(MaterialApp(
     home: UserScreen(),
     title: "my new app",
-    theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Raleway'),
+    theme: ThemeData(
+      primarySwatch: Colors.blue,
+      fontFamily: 'Raleway',
+    ),
   ));
 }
