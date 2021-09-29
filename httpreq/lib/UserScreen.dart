@@ -24,8 +24,26 @@ class _UserScreenState extends State<UserScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Users LIST"),
+      appBar: PreferredSize(
+        preferredSize: Size(0, 80),
+        child: Container(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(40.0),
+                child: Text(
+                  "Users Info",
+                  style: TextStyle(fontSize: 20),
+                ),
+              )
+            ],
+          ),
+          decoration: BoxDecoration(
+              color: Colors.red[400],
+              borderRadius: BorderRadius.only(
+                  bottomLeft: const Radius.circular(40.0),
+                  bottomRight: const Radius.circular(40.0))),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
